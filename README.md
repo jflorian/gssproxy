@@ -57,6 +57,9 @@ This class manages the package deployment.
 ##### `packages` (required)
 An array of package names needed for the gssproxy installation.  The default should be correct for supported platforms.
 
+##### `services` (required)
+An array of service names that comprise the gssproxy installation.  The default should be correct for supported platforms.
+
 
 ### Defined types
 

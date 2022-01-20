@@ -23,6 +23,7 @@ All notable changes to this project will be documented in this file.  The format
 ### Added
 - `class['gssproxy']`
 - management of the package
+- management of the service
 ### Changed
 ### Deprecated
 ### Removed

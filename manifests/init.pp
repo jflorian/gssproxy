@@ -16,10 +16,20 @@
 
 class gssproxy (
         Array[String[1], 1]     $packages,
+        Array[String[1], 1]     $services,
+        Boolean                 $enable,
+        Ddolib::Service::Ensure $ensure,
     ) {
 
     package { $packages:
         ensure => installed,
+    }
+
+    -> service { $services:
+        ensure     => $ensure,
+        enable     => $enable,
+        hasrestart => true,
+        hasstatus  => true,
     }
 
 }

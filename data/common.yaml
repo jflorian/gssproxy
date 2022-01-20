@@ -6,3 +6,5 @@
 
 gssproxy::packages:
     - gssproxy
+gssproxy::services:
+    - gssproxy
