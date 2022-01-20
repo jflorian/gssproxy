@@ -15,5 +15,15 @@
                 "35"
             ]
         }
+    ],
+    "dependencies": [
+        {
+            "name": "doubledog/ddolib",
+            "version_requirement": ">= 1.0.0 < 2.0.0"
+        },
+        {
+            "name": "puppetlabs/stdlib",
+            "version_requirement": ">= 6.0.0 < 9.0.0"
+        }
     ]
 }

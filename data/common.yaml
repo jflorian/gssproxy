@@ -1,0 +1,16 @@
+# This file is part of the doubledog-gssproxy Puppet module.
+# Copyright 2022 John Florian
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+---
+
+gssproxy::client_dir:           /var/lib/gssproxy/clients
+gssproxy::client_keytabs:       {}
+gssproxy::config_dir:           /etc/gssproxy
+gssproxy::debug_level:          0
+gssproxy::packages:
+    - gssproxy
+gssproxy::service_configs:      {}
+gssproxy::service_keytabs:      {}
+gssproxy::services:
+    - gssproxy
