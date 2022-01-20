@@ -19,10 +19,26 @@ class gssproxy (
         Array[String[1], 1]     $services,
         Boolean                 $enable,
         Ddolib::Service::Ensure $ensure,
+        Integer[0]              $debug_level,
     ) {
 
     package { $packages:
         ensure => installed,
+    }
+
+    -> file {
+        default:
+            owner   => 'root',
+            group   => 'root',
+            mode    => '0600',
+            seluser => 'system_u',
+            selrole => 'object_r',
+            seltype => 'etc_t',
+            ;
+        '/etc/gssproxy/gssproxy.conf':
+            content => template('gssproxy/gssproxy.conf.erb'),
+            notify  => Service[$services],
+            ;
     }
 
     -> service { $services:

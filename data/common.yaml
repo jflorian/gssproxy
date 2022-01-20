@@ -4,6 +4,7 @@
 
 ---
 
+gssproxy::debug_level:          0
 gssproxy::packages:
     - gssproxy
 gssproxy::services:

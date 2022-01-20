@@ -60,6 +60,9 @@ An array of package names needed for the gssproxy installation.  The default sho
 ##### `services` (required)
 An array of service names that comprise the gssproxy installation.  The default should be correct for supported platforms.
 
+##### `debug_level`
+Detail level at which to log debugging messages.  `0` corresponds to no logging, while `1` turns on basic debug logging.  Level `2` increases verbosity, including more detailed credential verification.  At level `3` and above, KRB5_TRACE output is logged.
+
 
 ### Defined types
 

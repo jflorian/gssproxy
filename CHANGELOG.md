@@ -24,6 +24,7 @@ All notable changes to this project will be documented in this file.  The format
 - `class['gssproxy']`
 - management of the package
 - management of the service
+- management of the service's primary configuration file
 ### Changed
 ### Deprecated
 ### Removed
