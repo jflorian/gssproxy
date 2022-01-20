@@ -39,6 +39,7 @@ This module lets you manage the gssproxy service.
 
 **Classes:**
 
+* [gssproxy](#gssproxy-class)
 
 **Defined types:**
 
@@ -49,6 +50,12 @@ This module lets you manage the gssproxy service.
 
 ### Classes
 
+#### gssproxy class
+
+This class manages the package deployment.
+
+##### `packages` (required)
+An array of package names needed for the gssproxy installation.  The default should be correct for supported platforms.
 
 
 ### Defined types

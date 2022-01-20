@@ -21,6 +21,8 @@ All notable changes to this project will be documented in this file.  The format
 
 ## [0.0.0] WIP
 ### Added
+- `class['gssproxy']`
+- management of the package
 ### Changed
 ### Deprecated
 ### Removed
