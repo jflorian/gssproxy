@@ -23,15 +23,62 @@ SPDX-License-Identifier: GPL-3.0-or-later
 
 ## Description
 
-This module lets you manage the gssproxy service.
+This module lets you manage the gssproxy service.  It aims to be comprehensive, modular and flexible.
 
 ## Setup
 
 ### What gssproxy Affects
 
+This module manages the deployment of the gssproxy package, the service and its configuration.  By design the service expects a primary configuration file and zero or more drop-in service configuration files that are merged as one.  The specifics of how that happens is better documented by the man pages of gssproxy, but suffice it to say, this module embraces that design concept.  It also makes trivial the secure deployment of related keytabs whether for service principals or client principals.
+
 ### Setup Requirements
 
+I use r10k and Hiera with eyaml, so that's well supported.
+
 ### Beginning with gssproxy
+
+For an entirely data driven setup, you merely need to include the primary class:
+```
+include 'gssproxy'
+```
+
+Then you might have in your Hiera data, something like this YAML (where keytab content would be encrypted by eyaml but is shown mangled here for brevity):
+```
+gssproxy::debug_level:    2
+gssproxy::service_configs:
+  80-httpd:
+    content: >
+      [service/HTTP]
+        mechs = krb5
+        cred_store = keytab:/etc/gssproxy/http.keytab
+        cred_store = ccache:/var/lib/gssproxy/clients/krb5cc_httpd_%U
+        euid = apache
+        program = /usr/sbin/httpd
+  99-nfs-client:
+    content: >
+      [service/nfs-client]
+        mechs = krb5
+        cred_store = keytab:/etc/krb5.keytab
+        cred_store = ccache:/var/lib/gssproxy/clients/krb5cc_nfs_%U
+        cred_store = client_keytab:/var/lib/gssproxy/clients/%U.keytab
+        cred_usage = initiate
+        allow_any_uid = yes
+        trusted = yes
+        euid = 0
+gssproxy::client_keytabs:
+  # This keytab authorizes the apache (uid=48) user principal to access NFS
+  # shares mounted with 'sec=krb5'.
+  '48':
+    content: >
+      ENC[PKCS7...........]
+gssproxy::service_keytabs:
+  # This keytab authorizes user principals to access locations served by httpd
+  # which are protected by GSSAPI.
+  http:
+    content: >
+      ENC[PKCS7...........]
+
+```
 
 ## Usage
 

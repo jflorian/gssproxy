@@ -31,6 +31,7 @@ All notable changes to this project will be documented in this file.  The format
 - dependency on `puppetlabs/stdlib`
 - `define['gssproxy::service_keytab']`
 - `define['gssproxy::client_keytab']`
+- example usage
 ### Changed
 ### Deprecated
 ### Removed
