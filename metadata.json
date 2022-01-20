@@ -1,0 +1,19 @@
+{
+    "name": "doubledog-gssproxy",
+    "version": "0.0.0",
+    "author": "John Florian",
+    "summary": "A module to manage the gssproxy service",
+    "license": "GPL-3.0",
+    "source": "https://github.com/jflorian/doubledog-gssproxy",
+    "project_page": "https://github.com/jflorian/doubledog-gssproxy",
+    "issues_url": "https://github.com/jflorian/doubledog-gssproxy/issues",
+    "operatingsystem_support": [
+        {
+            "operatingsystem": "Fedora",
+            "operatingsystemrelease": [
+                "34",
+                "35"
+            ]
+        }
+    ]
+}
