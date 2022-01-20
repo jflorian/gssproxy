@@ -46,6 +46,7 @@ This module lets you manage the gssproxy service.
 
 **Data types:**
 
+* [Gssproxy::ServiceName](#gssproxyservicename-data-type)
 
 
 ### Classes
@@ -70,6 +71,9 @@ Detail level at which to log debugging messages.  `0` corresponds to no logging,
 
 ### Data types
 
+#### `Gssproxy::ServiceName` data type
+
+Matches acceptable values for naming gssproxy drop-in configuration files.  Valid values are strings beginning with two digits and a dash, followed by one or more characters consisting only of digits, letters and the underscore character.  The two-digit prefix affects the order in which gssproxy will read the drop-in configuration files.
 
 
 ## Development
