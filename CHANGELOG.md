@@ -26,6 +26,9 @@ All notable changes to this project will be documented in this file.  The format
 - management of the service
 - management of the service's primary configuration file
 - `type['Gssproxy::ServiceName']`
+- `define['gssproxy::service_config']`
+- dependency on `doubledog/ddolib`
+- dependency on `puppetlabs/stdlib`
 ### Changed
 ### Deprecated
 ### Removed

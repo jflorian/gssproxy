@@ -43,6 +43,7 @@ This module lets you manage the gssproxy service.
 
 **Defined types:**
 
+* [gssproxy::service\_config](#gssproxyservice_config-defined-type)
 
 **Data types:**
 
@@ -64,9 +65,30 @@ An array of service names that comprise the gssproxy installation.  The default 
 ##### `debug_level`
 Detail level at which to log debugging messages.  `0` corresponds to no logging, while `1` turns on basic debug logging.  Level `2` increases verbosity, including more detailed credential verification.  At level `3` and above, KRB5_TRACE output is logged.
 
+##### `config_dir`
+Absolute path where service configuration files are to be deployed.
+
+##### `service_configs`
+A hash whose keys are service names and whose values are hashes comprising the same parameters you would otherwise pass to the [gssproxy::service\_config](#gssproxyservice_config-defined-type) defined type.  The default is to deploy none.
+
 
 ### Defined types
 
+#### gssproxy::service\_config defined type
+
+This defined type manages a drop-in service configuration file for the gssproxy service.
+
+##### `namevar` (required)
+An arbitrary identifier for the file instance unless the *service_name* parameter is not set in which case this must provide the value normally set with the *service_name* parameter.
+
+##### `content`, `source`
+Literal content for the file or a source URI that provides the same.  If neither *content* nor *source* is given, the content of the file will be left unmanaged.
+
+##### `ensure`
+Instance is to be `'present'` (default) or `'absent'`.  Alternatively, a Boolean value may also be used with `true` equivalent to `'present'` and `false` equivalent to `'absent'`.
+
+##### `service_name`
+Name to be given to the drop-in service configuration file, without any path details nor a `.conf` suffix.  Specifically, the value must conform to the [Gssproxy::ServiceName](#gssproxyservicename-data-type) data type.  This may be used in place of *namevar* if it's beneficial to give *namevar* an arbitrary value.
 
 
 ### Data types

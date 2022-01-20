@@ -4,8 +4,10 @@
 
 ---
 
+gssproxy::config_dir:           /etc/gssproxy
 gssproxy::debug_level:          0
 gssproxy::packages:
     - gssproxy
+gssproxy::service_configs:      {}
 gssproxy::services:
     - gssproxy

@@ -20,6 +20,8 @@ class gssproxy (
         Boolean                 $enable,
         Ddolib::Service::Ensure $ensure,
         Integer[0]              $debug_level,
+        Stdlib::Absolutepath    $config_dir,
+        Hash[String[1], Hash]   $service_configs,
     ) {
 
     package { $packages:
@@ -35,7 +37,7 @@ class gssproxy (
             selrole => 'object_r',
             seltype => 'etc_t',
             ;
-        '/etc/gssproxy/gssproxy.conf':
+        "${gssproxy::config_dir}//gssproxy.conf":
             content => template('gssproxy/gssproxy.conf.erb'),
             notify  => Service[$services],
             ;
@@ -47,5 +49,7 @@ class gssproxy (
         hasrestart => true,
         hasstatus  => true,
     }
+
+    create_resources('gssproxy::service_config', $service_configs)
 
 }
