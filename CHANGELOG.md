@@ -19,7 +19,7 @@ Template
 
 All notable changes to this project will be documented in this file.  The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/) and this project adheres to [Semantic Versioning](http://semver.org).
 
-## [0.0.0] WIP
+## [0.0.0] 2022-01-20
 ### Added
 - `class['gssproxy']`
 - management of the package
@@ -32,8 +32,3 @@ All notable changes to this project will be documented in this file.  The format
 - `define['gssproxy::service_keytab']`
 - `define['gssproxy::client_keytab']`
 - example usage
-### Changed
-### Deprecated
-### Removed
-### Fixed
-### Security
