@@ -43,6 +43,7 @@ This module lets you manage the gssproxy service.
 
 **Defined types:**
 
+* [gssproxy::client\_keytab](#gssproxyclient_keytab-defined-type)
 * [gssproxy::service\_config](#gssproxyservice_config-defined-type)
 * [gssproxy::service\_keytab](#gssproxyservice_keytab-defined-type)
 
@@ -66,6 +67,12 @@ An array of service names that comprise the gssproxy installation.  The default 
 ##### `debug_level`
 Detail level at which to log debugging messages.  `0` corresponds to no logging, while `1` turns on basic debug logging.  Level `2` increases verbosity, including more detailed credential verification.  At level `3` and above, KRB5_TRACE output is logged.
 
+##### `client_dir`
+Absolute path where client keytab files are to be deployed.
+
+##### `client_keytabs`
+A hash whose keys are keytab filenames and whose values are hashes comprising the same parameters you would otherwise pass to the [gssproxy::client\_keytab](#gssproxyclient_keytab-defined-type) defined type.  The default is to deploy none.
+
 ##### `config_dir`
 Absolute path where service configuration/keytab files are to be deployed.
 
@@ -77,6 +84,23 @@ A hash whose keys are keytab filenames and whose values are hashes comprising th
 
 
 ### Defined types
+
+#### gssproxy::client\_keytab defined type
+
+This defined type manages a client keytab file for the gssproxy service.
+
+##### `namevar` (required)
+An arbitrary identifier for the file instance unless the *filename* parameter is not set in which case this must provide the value normally set with the *filename* parameter.
+
+##### `content`, `source`
+Literal content for the file or a source URI that provides the same.  If neither *content* nor *source* is given, the content of the file will be left unmanaged.
+
+##### `ensure`
+Instance is to be `'present'` (default) or `'absent'`.  Alternatively, a Boolean value may also be used with `true` equivalent to `'present'` and `false` equivalent to `'absent'`.
+
+##### `filename`
+Name to be given to the client keytab file, without any path details nor a `.keytab` suffix.  This may be used in place of *namevar* if it's beneficial to give *namevar* an arbitrary value.
+
 
 #### gssproxy::service\_config defined type
 

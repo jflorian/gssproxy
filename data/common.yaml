@@ -4,6 +4,8 @@
 
 ---
 
+gssproxy::client_dir:           /var/lib/gssproxy/clients
+gssproxy::client_keytabs:       {}
 gssproxy::config_dir:           /etc/gssproxy
 gssproxy::debug_level:          0
 gssproxy::packages:

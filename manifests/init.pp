@@ -20,6 +20,8 @@ class gssproxy (
         Boolean                 $enable,
         Ddolib::Service::Ensure $ensure,
         Integer[0]              $debug_level,
+        Stdlib::Absolutepath    $client_dir,
+        Hash[String[1], Hash]   $client_keytabs,
         Stdlib::Absolutepath    $config_dir,
         Hash[String[1], Hash]   $service_configs,
         Hash[String[1], Hash]   $service_keytabs,
@@ -51,6 +53,7 @@ class gssproxy (
         hasstatus  => true,
     }
 
+    create_resources('gssproxy::client_keytab', $client_keytabs)
     create_resources('gssproxy::service_config', $service_configs)
     create_resources('gssproxy::service_keytab', $service_keytabs)
 
