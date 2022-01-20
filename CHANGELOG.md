@@ -29,6 +29,7 @@ All notable changes to this project will be documented in this file.  The format
 - `define['gssproxy::service_config']`
 - dependency on `doubledog/ddolib`
 - dependency on `puppetlabs/stdlib`
+- `define['gssproxy::service_keytab']`
 ### Changed
 ### Deprecated
 ### Removed

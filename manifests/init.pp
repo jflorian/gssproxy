@@ -22,6 +22,7 @@ class gssproxy (
         Integer[0]              $debug_level,
         Stdlib::Absolutepath    $config_dir,
         Hash[String[1], Hash]   $service_configs,
+        Hash[String[1], Hash]   $service_keytabs,
     ) {
 
     package { $packages:
@@ -51,5 +52,6 @@ class gssproxy (
     }
 
     create_resources('gssproxy::service_config', $service_configs)
+    create_resources('gssproxy::service_keytab', $service_keytabs)
 
 }

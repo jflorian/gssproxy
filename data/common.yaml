@@ -9,5 +9,6 @@ gssproxy::debug_level:          0
 gssproxy::packages:
     - gssproxy
 gssproxy::service_configs:      {}
+gssproxy::service_keytabs:      {}
 gssproxy::services:
     - gssproxy
