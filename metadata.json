@@ -1,6 +1,6 @@
 {
     "name": "doubledog-gssproxy",
-    "version": "0.0.0",
+    "version": "0.0.1",
     "author": "John Florian",
     "summary": "A module to manage the gssproxy service",
     "license": "GPL-3.0",
